@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Puzzle</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid black;
+            font-size: 20px;
+        }
+
+        /* Dark vertical lines after every 3rd column */
+        td:nth-child(3),
+        td:nth-child(6) {
+            border-right: 3px solid black;
+        }
+
+        /* Dark horizontal lines after every 3rd row */
+        tr:nth-child(3) td,
+        tr:nth-child(6) td {
+            border-bottom: 3px solid black;
+        }
+
+        /* Outer border */
+        table {
+            border: 3px solid black;
+        }
+
+        h1, p, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sudoku Puzzle</h1>
+
+    <p><strong>Difficulty:</strong> Medium</p>
+    <p><strong>Timer:</strong> 00:15:32</p>
+
+    <h2>Complete the Sudoku</h2>
+
+    <table>
+
+        <tr>
+            <td>5</td><td>3</td><td></td>
+            <td>6</td><td>7</td><td></td>
+            <td></td><td></td><td>2</td>
+        </tr>
+
+        <tr>
+            <td>6</td><td></td><td>2</td>
+            <td>1</td><td>9</td><td>5</td>
+            <td></td><td></td><td></td>
+        </tr>
+
+        <tr>
+            <td></td><td>9</td><td>8</td>
+            <td></td><td></td><td></td>
+            <td></td><td>6</td><td></td>
+        </tr>
+
+        <tr>
+            <td>8</td><td></td><td></td>
+            <td>4</td><td></td><td></td>
+            <td>7</td><td></td><td>6</td>
+        </tr>
+
+        <tr>
+            <td>4</td><td></td><td>6</td>
+            <td>8</td><td></td><td>3</td>
+            <td>9</td><td></td><td>1</td>
+        </tr>
+
+        <tr>
+            <td>7</td><td></td><td>3</td>
+            <td></td><td>2</td><td></td>
+            <td></td><td></td><td>8</td>
+        </tr>
+
+        <tr>
+            <td></td><td>6</td><td></td>
+            <td></td><td></td><td></td>
+            <td>2</td><td>8</td><td></td>
+        </tr>
+
+        <tr>
+            <td></td><td></td><td></td>
+            <td>4</td><td>1</td><td>9</td>
+            <td></td><td></td><td>5</td>
+        </tr>
+
+        <tr>
+            <td></td><td></td><td></td>
+            <td></td><td>8</td><td></td>
+            <td></td><td>7</td><td>9</td>
+        </tr>
+
+    </table>
+
+    <p>
+        <button>New Game</button>
+        <button>Check Solution</button>
+        <button>Reset</button>
+    </p>
+
+</body>
+</html>
