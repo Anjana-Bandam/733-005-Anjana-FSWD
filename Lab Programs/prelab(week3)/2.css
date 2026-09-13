@@ -1,0 +1,7 @@
+.tab{
+    margin: 10px auto;
+    border: 2px solid black;
+    padding: 5px;
+    background-color:lightblue;
+    max-width: 700px;
+}

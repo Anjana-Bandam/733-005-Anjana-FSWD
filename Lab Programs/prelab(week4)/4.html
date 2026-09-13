@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display list of student names</title>
+</head>
+<body>
+    <script>
+         const display=(...a)=>{
+            document.write(`Student names:<br>`)
+            for(i in a){
+                document.write(`${a[i]}<br>`)
+            }
+         }
+
+         display("Joe","Max","Stacy","Gwen","Peter")
+    </script>
+</body>
+</html>
