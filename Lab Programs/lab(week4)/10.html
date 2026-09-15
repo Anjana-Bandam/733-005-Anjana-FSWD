@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Duplicate Characters</title>
+</head>
+<body>
+
+<script>
+    let str = prompt("Enter a string");
+    let result = "";
+
+    for (let ch of str) {
+        if (!result.includes(ch)) {
+            result += ch;
+        }
+    }
+
+    document.write(`Result: ${result}`);
+</script>
+
+</body>
+</html>

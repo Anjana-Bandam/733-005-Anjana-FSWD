@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Non-Repeated Character</title>
+</head>
+<body>
+
+<script>
+    function firstNonRepeated(str) {
+        let freq = {};
+
+        for (let ch of str) {
+            freq[ch] = (freq[ch] || 0) + 1;
+        }
+
+        for (let ch of str) {
+            if (freq[ch] == 1) {
+                return ch;
+            }
+        }
+    }
+
+    let str = prompt("enter a word: ")
+
+    document.write(`First non-repeated character: ${firstNonRepeated(str)}`);
+</script>
+
+</body>
+</html>

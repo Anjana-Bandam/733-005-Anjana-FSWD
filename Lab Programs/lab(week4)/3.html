@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Moving using buttons</title>
+    <style>
+      .buttons {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+      }
+      body {
+        margin: 20px;
+        padding: 30px;
+      }
+      img {
+        position: absolute;
+        left: 150px;
+        top: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="image"
+      src="https://png.pngtree.com/png-vector/20220121/ourmid/pngtree-3d-tennis-ball-vector-ilustration-png-image_4331248.png"
+      alt="tennisball"
+      width="150px"
+      height="150px"
+    />
+    <br /><br /><br /><br /><br /><br />
+    <div class="buttons">
+      <button onclick="moveLeft()">Left</button>
+      <button onclick="moveRight()">Right</button>
+      <button onclick="moveDown()">Down</button>
+      <button onclick="moveUp()">Up</button>
+    </div>
+    <script>
+      let img = document.querySelector(".image");
+      let x = 150;
+      let y = 150;
+      function moveLeft() {
+        x = x - 10;
+        img.style.left = x + "px";
+      }
+      function moveRight() {
+        x = x + 10;
+        img.style.left = x + "px";
+      }
+      function moveUp() {
+        y = y - 10;
+        img.style.top = y + "px";
+      }
+      function moveDown() {
+        y = y + 10;
+        img.style.top = y + "px";
+      }
+    </script>
+  </body>
+</html>

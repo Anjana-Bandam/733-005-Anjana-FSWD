@@ -6,6 +6,15 @@
     <title>Validate username</title>
 </head>
 <body>
-    
+    <script>
+        let username=prompt("enter your username:")
+        let pattern=/^\d[A-Za-z]{8}[A-Za-z]$/
+        if (pattern.test(username)){
+            document.write("Username is valid")
+        }
+        else{
+            document.write("Username is invalid")
+        }
+    </script>
 </body>
 </html>

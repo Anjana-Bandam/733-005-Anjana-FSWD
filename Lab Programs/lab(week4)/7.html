@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Substrings</title>
+</head>
+<body>
+
+<script>
+    function substrings(str) {
+        for (let i = 0; i < str.length; i++) {
+            for (let j = i + 1; j <= str.length; j++) {
+                document.write(`${str.substring(i, j)}, `);
+            }
+        }
+    }
+
+    let word = prompt("enter a word: ")
+
+    substrings(word);
+</script>
+
+</body>
+</html>
