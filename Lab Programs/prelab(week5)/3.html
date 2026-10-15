@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Example</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let n = 7;
+        let output = document.getElementById("output");
+
+        function checkNumber(num) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (num < 0) {
+                        reject("Error: Number is negative");
+                    } else {
+                        resolve("Success: Number is valid");
+                    }
+                }, 2000);
+            });
+        }
+
+        output.innerHTML = `Checking number: ${n}<br>Please wait 2 seconds...`;
+
+        checkNumber(n)
+            .then((message) => {
+                output.innerHTML += `<br>${message}`;
+            })
+            .catch((error) => {
+                output.innerHTML += `<br>${error}`;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Email</title>
+</head>
+<body>
+    <script>
+        let email = "student@vce.ac.in";
+        let pattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        document.write(`Email entered: ${email}<br>`);
+        if (pattern.test(email)) {
+            document.write("Valid email address");
+        } else {
+            document.write("Invalid email address");
+        }
+    </script>
+</body>
+</html>

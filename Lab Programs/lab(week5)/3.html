@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking using Promises</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById("output");
+
+        function step(message) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    output.innerHTML += message + "<br>";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        step("order placed")
+        .then(()=>step("order shipped"))
+        .then(()=>step("order delivered"))
+    </script>
+</body>
+</html>

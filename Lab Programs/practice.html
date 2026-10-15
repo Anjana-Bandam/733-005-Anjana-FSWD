@@ -1,0 +1,197 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>JAVA SCRIPT PROGRAM TO FIND SQUARE AND CUBE</title>
+    </head>
+    <body>
+        <script>
+            let square=(n)=>n*n;
+            let cube=(n)=>n*n*n;
+            let n=prompt("enter a number")
+            document.write("Square: ",square(n), "<br>")
+            document.write("Cube: ",cube(n))
+
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CALLBACK FUNCTIONS
+        </title>
+    </head>
+    <body>
+        <script>
+            function add(a,b,callback){
+                let result=a+b;
+                callback(result);
+            }
+            function displayResult(n){
+                document.write(n)
+            }
+            add(78,45,displayResult)
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Promises</title>
+    </head>
+    <body>
+        <div id="output"></div>
+        <script>
+            let n=prompt("enter number:");
+            let output=document.getElementById("output");
+            function checkNumber(n){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        if(n<0){
+                            reject("Error: the given number is negative")
+                        }
+                        else{
+                            resolve("Success: Positive number")
+                        }
+                    },2000)
+                })
+            }
+             output.innerHTML=`Checking number: ${n} <br> Waiting for 2 sec <br>`
+            checkNumber(n).then((msg)=>{
+                output.innerHTML+=msg
+            }).catch((msg)=>{
+                output.innerHTML+=msg
+            })
+        </script>
+       
+    </body>
+    
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Async Await</title>
+    </head>
+    <body>
+        <div id="output"></div>
+         <script>
+            let output=document.getElementById("output")
+            function fetchData(){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve("Data fetched successfully")
+                    },3000)
+                })
+            }
+
+            async function showData(){
+                output.innerHTML=`Fetching data..Please wait for 3 seconds<br>`
+                let data=await fetchData()
+                output.innerHTML+=data
+            }
+            showData()
+         </script>
+    </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>REGEX</title>
+    </head>
+    <body>
+        <script>
+            let mail=prompt("enter your mail")
+            let pattern=/^[\w.+%-]+@[\w.-]+\.[a-z]{2,}$/
+            if(pattern.test(mail)){
+                document.write("the given mail is valid")
+            }
+            else{
+                document.write("the given mail is invalid")
+            }
+        </script>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Change Background Color</title>
+    </head>
+    <body>
+        <button id="btn">Change Background Color</button>
+        <script>
+            let btn=document.getElementById("btn")
+            colors=["lightpink","lightblue","lightyellow","lightgreen"]
+            btn.addEventListener("click",()=>{
+                let color=colors[Math.floor(Math.random()*colors.length)]
+                document.body.style.backgroundColor=color
+            })
+        </script>
+    </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       img{
+        width: 300px;
+        height:200px;
+       }
+    </style>
+</head>
+<body>
+    <img id="img" src="https://th.bing.com/th?id=ORMS.9fd2c53b31b3cacfa69a3ccc91b5eeef&pid=Wdp&w=686&h=412&qlt=90&c=1&rs=1" alt="sample image">
+    <p id="message">....</p>
+    <script>
+        let img=document.getElementById("img")
+        let msg=document.getElementById("message")
+        img.addEventListener("mouseover",()=>{
+            msg.textContent="Mouse was hovered"
+        })
+        img.addEventListener("mouseout",()=>{
+            msg.textContent="Mouse was taken out"
+        })
+        img.addEventListener("click",()=>{
+            msg.textContent="The img was clicked"
+        })
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [
+            { name: 'A', marks: 35 },
+            { name: 'B', marks: 78 },
+            { name: 'C', marks: 42 },
+            { name: 'D', marks: 90 }
+        ];
+
+        let marks=students.map(s=>s.marks)
+        let avg=marks.reduce((sum,n)=>sum+n,0)/marks.length
+        let pass=students.filter(s=>s.marks>=40).map(s=>s.name)
+        document.write(avg)
+        document.write(pass)
+    </script>
+</body>
+</html>

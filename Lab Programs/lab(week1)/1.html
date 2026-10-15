@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Timetable</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .timetable-container {
+        border: 2px solid black;
+        padding: 10px;
+        max-width: 1100px;
+        margin: auto;
+    }
+    .college-header {
+        text-align: center;
+    }
+    .college-header h1 {
+        font-size: 18px;
+        margin: 2px;
+    }
+    .college-header p {
+        margin: 2px;
+        font-size: 13px;
+    }
+    .college-header h2 {
+        font-size: 15px;
+        margin: 4px;
+        text-decoration: underline;
+    }
+    .college-header h3 {
+        font-size: 14px;
+        margin: 2px;
+        text-decoration: underline;
+    }
+    .meta-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin: 5px 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 5px;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 6px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .day-col {
+        font-weight: bold;
+        width: 60px;
+    }
+    .lunch-col {
+        writing-mode: vertical-rl;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .legend-table td {
+        text-align: left;
+        font-size: 11px;
+        vertical-align: top;
+    }
+    .coordinator {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+    .signatures {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .signatures div {
+        flex: 1;
+    }
+</style>
+</head>
+<body>
+
+<div class="timetable-container">
+
+    <div class="college-header">
+        <h1>VASAVI COLLEGE OF ENGINEERING (AUTONOMOUS)</h1>
+        <p>IBRAHIMBAGH, HYDERABAD-31.</p>
+        <h3>DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</h3>
+        <h2>TIME TABLE (ROOM NO. R-301)</h2>
+        <h3>CLASS : B.E. V - SEMESTER (CSE - A)</h3>
+    </div>
+
+    <div class="meta-row">
+        <span>YEAR: 2026-27</span>
+        <span>w. e. f. 03.08.2026</span>
+    </div>
+
+    <table>
+        <tr>
+            <th>TIME/DAY</th>
+            <th>9.40 AM<br>TO<br>10.40 AM</th>
+            <th>10.40 AM<br>TO<br>11.40 AM</th>
+            <th>11.40 AM<br>TO<br>12.40 PM</th>
+            <th>12.40 PM<br>TO<br>1.20 PM</th>
+            <th>1.20 PM<br>TO<br>2.20 PM</th>
+            <th>2.20 PM<br>TO<br>3.20 PM</th>
+            <th>3.20 PM<br>TO<br>4.20 PM</th>
+        </tr>
+        <tr>
+            <td class="day-col">MON</td>
+            <td colspan="2">IoT Lab [Lab-IV]</td>
+            <td>Mentor / FSWD</td>
+            <td rowspan="6" class="lunch-col">LUNCH</td>
+            <td>OE</td>
+            <td>IoT</td>
+            <td>CN</td>
+        </tr>
+        <tr>
+            <td class="day-col">TUE</td>
+            <td>AI</td>
+            <td colspan="2">SDC-V(CS-II)</td>
+            <td>OE</td>
+            <td>CN</td>
+            <td>Sports/ FSWD</td>
+        </tr>
+        <tr>
+            <td class="day-col">WED</td>
+            <td>DT</td>
+            <td>AI</td>
+            <td>IoT</td>
+            <td>OE</td>
+            <td colspan="2">AIML Lab [Lab-V]</td>
+        </tr>
+        <tr>
+            <td class="day-col">THU</td>
+            <td>CN</td>
+            <td colspan="2">CN Lab [Project Lab]</td>
+            <td colspan="2">SDC-VI(TS-III)</td>
+            <td>DT</td>
+        </tr>
+        <tr>
+            <td class="day-col">FRI</td>
+            <td>FSWD</td>
+            <td>AI</td>
+            <td>CN (T)</td>
+            <td>IoT</td>
+            <td colspan="2">FSWD Lab [Project Lab]</td>
+        </tr>
+        <tr>
+            <td class="day-col">SAT</td>
+            <td>IoT</td>
+            <td colspan="2">Mini Project [Lab-V]</td>
+            <td colspan="2">ECA-II</td>
+            <td>FSWD</td>
+        </tr>
+    </table>
+
+    <table class="legend-table">
+        <tr>
+            <td style="width:50%">
+                UI24PC510CS-IoT (Internet of Things) &nbsp;&nbsp; M. Alphonsa<br><br>
+                UI24PC520CS-FSWD (Full Stack Web Development) &nbsp;&nbsp; S. Susmitha<br><br>
+                UI24PC530CS-CN (Computer Networks) &nbsp;&nbsp; T. Naishitha<br><br>
+                UI24PC540CS-AI (Artificial Intelligence) &nbsp;&nbsp; Dr. T. Adilakshmi<br><br>
+                U24HS010EH-DT (Design Thinking) &nbsp;&nbsp; Lucy Spam (9533918008)<br><br>
+                <table style="width:100%; border:none;">
+                    <tr>
+                        <td rowspan="2" style="border:1px solid black; text-align:center; font-weight:bold;">OE-III</td>
+                        <td style="border:1px solid black;">U24OE510CS &nbsp; Introduction to Operating Systems &nbsp;&nbsp; P. Nancy Celine</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid black;">U24OE520CS &nbsp; Fundamentals of Artificial Intelligence &nbsp;&nbsp; B. Revathi D.Likhitha</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:50%">
+                U24HS510EH-SDC-V(CS-II)(Skill Development Course -V(Communication Skills-II)) &nbsp;&nbsp; Basheer Shaik(9966112343)<br><br>
+                U24PE510CS-SDC-VI(TS-III) (Skill Development Course -VI (Technical Skills&ndash;III))<br><br>
+                UI24PC511CS-IoT Lab (Internet of Things Lab) &nbsp;&nbsp; M. Alphonsa, P. Manju reddy, M. Prashanthi<br><br>
+                UI24PC521CS-FSWD Lab (Full Stack Web Development Lab) &nbsp;&nbsp; S. Susmitha, U. Mamatha, P. Manju reddy<br><br>
+                UI24PC531CS-CN Lab (Computer Networks Lab) &nbsp;&nbsp; T. Naishitha, M. Jithender Reddy, S. Susmitha<br><br>
+                UI24PC541CS-AIML Lab (Artificial Intelligence and Machine Learning Lab) &nbsp;&nbsp; Dr. S. Komal Kour, S. Swetha, P. Manju Reddy<br><br>
+                UI24PW519CS-MP(Mini Project) &nbsp;&nbsp; M. Jithender Reddy, S. Susmitha, K. Sushma Kumari
+            </td>
+        </tr>
+    </table>
+
+    <p class="coordinator">Extra-curricular Activity-II/ Sports / Library - Class Coordinator : T. Naishitha</p>
+
+    <div class="signatures">
+        <div>Time Table - I/C</div>
+        <div>HEAD, CSE</div>
+        <div>Director, CSE</div>
+        <div>PRINCIPAL</div>
+    </div>
+
+</div>
+
+</body>
+</html>

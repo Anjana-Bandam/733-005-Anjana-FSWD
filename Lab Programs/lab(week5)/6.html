@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks - map, filter, reduce</title>
+</head>
+<body>
+    <script>
+        let students = [
+            { name: 'A', marks: 35 },
+            { name: 'B', marks: 78 },
+            { name: 'C', marks: 42 },
+            { name: 'D', marks: 90 }
+        ];
+
+        let marksList = students.map(s => s.marks);
+        let classAverage = marksList.reduce((sum, m) => sum + m, 0) / marksList.length;
+
+        let passedStudents = students.filter(s => s.marks >= 40).map(s => s.name);
+
+        document.write(`Class Average: ${classAverage.toFixed(2)}<br>`);
+        document.write(`Passed Students: ${passedStudents.join(", ")}`);
+    </script>
+</body>
+</html>

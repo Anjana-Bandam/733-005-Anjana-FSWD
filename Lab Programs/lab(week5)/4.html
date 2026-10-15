@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking using Async/Await</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById("output");
+
+        function step(message) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    output.innerHTML += message + "<br>";
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        async function trackOrder() {
+            await step("Order Placed");
+            await step("Order Shipped");
+            await step("Order Delivered");
+        }
+
+        trackOrder();
+
+        // Comparison:
+        // The .then() chaining version (previous program) works correctly, but each
+        // step is nested inside a callback, so the sequence of events has to be
+        // read "sideways" through chained .then() calls.
+        // The async/await version above reads top-to-bottom like normal synchronous
+        // code - each "await step(...)" line simply pauses until that step finishes
+        // before moving to the next line. This makes the async/await version easier
+        // to read and easier to extend (e.g. adding a try/catch for errors) compared
+        // to the .then() chaining version.
+    </script>
+</body>
+</html>

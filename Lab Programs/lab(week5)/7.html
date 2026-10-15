@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Simulation</title>
+    <style>
+        #light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+            margin-bottom: 10px;
+            border: 2px solid black;
+        }
+        button {
+            margin-right: 10px;
+            padding: 6px 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="light"></div>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <p id="status">Status: Stopped</p>
+
+    <script>
+        let light = document.getElementById("light");
+        let status = document.getElementById("status");
+        let timer = null;
+        let running = false;
+
+        function changeLight(color, next, delay) {
+            light.style.backgroundColor = color;
+            status.textContent = `Status: ${color.toUpperCase()}`;
+            timer = setTimeout(() => {
+                if (running) next();
+            }, delay);
+        }
+
+        function redLight() { changeLight("red", greenLight, 2000); }
+        function greenLight() { changeLight("green", yellowLight, 2000); }
+        function yellowLight() { changeLight("yellow", redLight, 1000); }
+
+        document.getElementById("startBtn").addEventListener("click", function () {
+            if (!running) {
+                running = true;
+                redLight();
+            }
+        });
+
+        document.getElementById("stopBtn").addEventListener("click", function () {
+            running = false;
+            clearTimeout(timer);
+            status.textContent = "Status: Stopped";
+        });
+    </script>
+</body>
+</html>

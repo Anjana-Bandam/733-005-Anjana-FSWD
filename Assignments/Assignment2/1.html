@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - React Router SPA</title>
+
+    <!-- React, ReactDOM and Babel -->
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+
+    <!-- React Router (v6) -->
+    <script src="https://unpkg.com/@remix-run/router@1.19.2/dist/router.umd.min.js"></script>
+    <script src="https://unpkg.com/react-router@6.26.2/dist/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.26.2/dist/umd/react-router-dom.development.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
+        nav { background: #2c3e50; padding: 15px; }
+        nav a { color: white; margin-right: 20px; text-decoration: none; font-weight: bold; }
+        nav a.active { color: #f1c40f; }
+        .container { padding: 20px; }
+        .student-list li { margin: 8px 0; }
+        .card { background: white; padding: 15px; border-radius: 8px; margin-top: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .error { color: #c0392b; }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { HashRouter, Routes, Route, NavLink, Link, Outlet, useParams } = ReactRouterDOM;
+
+        // Student data
+        const students = [
+            { id: 1, name: "Anjana Bandam", branch: "CSE", year: 3, email: "anjana@college.edu" },
+            { id: 2, name: "Rahul Verma",   branch: "ECE", year: 2, email: "rahul@college.edu" },
+            { id: 3, name: "Priya Reddy",   branch: "IT",  year: 3, email: "priya@college.edu" },
+            { id: 4, name: "Arjun Rao",     branch: "MECH", year: 4, email: "arjun@college.edu" }
+        ];
+
+        // Navigation Bar
+        function NavBar() {
+            return (
+                <nav>
+                    <NavLink to="/" end>Home</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/students">Students</NavLink>
+                </nav>
+            );
+        }
+
+        // Home Page
+        function Home() {
+            return (
+                <div className="container">
+                    <h2>Welcome to the Student Portal</h2>
+                    <p>This is a Single Page Application built using React Router.</p>
+                </div>
+            );
+        }
+
+        // About Page
+        function About() {
+            return (
+                <div className="container">
+                    <h2>About Us</h2>
+                    <p>This portal displays the list of students and their details.</p>
+                </div>
+            );
+        }
+
+        // Students Page (parent of the nested route)
+        function Students() {
+            return (
+                <div className="container">
+                    <h2>Students List</h2>
+                    <ul className="student-list">
+                        {students.map(s => (
+                            <li key={s.id}>
+                                <Link to={`/students/${s.id}`}>{s.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Nested route (student details) renders here */}
+                    <Outlet />
+                </div>
+            );
+        }
+
+        // Student Details (dynamic route /students/:id)
+        function StudentDetails() {
+            const { id } = useParams();
+            const student = students.find(s => s.id === Number(id));
+
+            if (!student) {
+                return <p className="error">Student with ID {id} not found.</p>;
+            }
+
+            return (
+                <div className="card">
+                    <h3>{student.name}</h3>
+                    <p><strong>ID:</strong> {student.id}</p>
+                    <p><strong>Branch:</strong> {student.branch}</p>
+                    <p><strong>Year:</strong> {student.year}</p>
+                    <p><strong>Email:</strong> {student.email}</p>
+                </div>
+            );
+        }
+
+        // 404 Page
+        function NotFound() {
+            return (
+                <div className="container">
+                    <h2 className="error">404 - Page Not Found</h2>
+                    <p>The page you are looking for does not exist.</p>
+                    <Link to="/">Go back to Home</Link>
+                </div>
+            );
+        }
+
+        // Main App with routes
+        function App() {
+            return (
+                <HashRouter>
+                    <NavBar />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/students" element={<Students />}>
+                            <Route index element={<p>Select a student to view details.</p>} />
+                            <Route path=":id" element={<StudentDetails />} />
+                        </Route>
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </HashRouter>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+</body>
+</html>

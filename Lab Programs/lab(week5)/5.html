@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Event Handlers</title>
+    <style>
+        img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <img id="myImage"
+         src="https://th.bing.com/th?id=ORMS.9fd2c53b31b3cacfa69a3ccc91b5eeef&pid=Wdp&w=686&h=412&qlt=90&c=1&rs=1"
+         alt="Sample Image">
+    <p id="message">Hover, move away, or click the image</p>
+
+    <script>
+        let img = document.getElementById("myImage");
+        let message = document.getElementById("message");
+
+        img.addEventListener("mouseover", function () {
+            message.textContent = "Mouse is over the image";
+        });
+
+        img.addEventListener("mouseout", function () {
+            message.textContent = "Mouse has left the image";
+        });
+
+        img.addEventListener("click", function () {
+            message.textContent = "Image was clicked";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Mobile Number</title>
+</head>
+<body>
+    <script>
+        let mobile = prompt("Enter your 10-digit mobile number:");
+        let pattern = /^[6-9]\d{9}$/;
+
+        document.write(`Mobile number entered: ${mobile}<br>`);
+        if (pattern.test(mobile)) {
+            document.write("Valid mobile number");
+        } else {
+            document.write("Invalid mobile number");
+        }
+    </script>
+</body>
+</html>

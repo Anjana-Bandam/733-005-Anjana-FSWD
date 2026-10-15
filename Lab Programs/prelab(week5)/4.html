@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await Example</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById("output");
+
+        function fetchData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Data fetched successfully from server");
+                }, 3000);
+            });
+        }
+
+        async function showData() {
+            output.innerHTML = "Fetching data, please wait 3 seconds...<br>";
+            let data = await fetchData();
+            output.innerHTML += data;
+        }
+
+        showData();
+    </script>
+</body>
+</html>

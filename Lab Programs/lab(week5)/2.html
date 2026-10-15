@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator using Callback</title>
+</head>
+<body>
+    <script>
+        function add(a, b, callback) { callback(a + b); }
+        function subtract(a, b, callback) { callback(a - b); }
+        function multiply(a, b, callback) { callback(a * b); }
+        function divide(a, b, callback) { callback(a / b); }
+
+        function showResult(result) {
+            document.write(`Result: ${result}`);
+        }
+
+        let num1 = Number(prompt("Enter first number:"));
+        let num2 = Number(prompt("Enter second number:"));
+        let operator = prompt("Choose operator (+, -, *, /):");
+
+        document.write(`${num1} ${operator} ${num2}<br>`);
+
+        if (operator === "+") {
+            add(num1, num2, showResult);
+        } else if (operator === "-") {
+            subtract(num1, num2, showResult);
+        } else if (operator === "*") {
+            multiply(num1, num2, showResult);
+        } else if (operator === "/") {
+            divide(num1, num2, showResult);
+        } else {
+            document.write("Invalid operator");
+        }
+    </script>
+</body>
+</html>
